@@ -23,6 +23,8 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
+    FullInfoCommand.ui \
+    NewCommand.ui \
     mainwindow.ui
 
 TRANSLATIONS += \

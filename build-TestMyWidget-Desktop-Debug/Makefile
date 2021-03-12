@@ -113,6 +113,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../TestMyWidget/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -142,7 +143,7 @@ TARGET        = TestMyWidget
 first: all
 ####### Build rules
 
-TestMyWidget: ui_mainwindow.h $(OBJECTS)  
+TestMyWidget: ui_FullInfoCommand.h ui_NewCommand.h ui_mainwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../TestMyWidget/TestMyWidget.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -201,6 +202,7 @@ Makefile: ../TestMyWidget/TestMyWidget.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -278,6 +280,7 @@ Makefile: ../TestMyWidget/TestMyWidget.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -315,7 +318,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TestMyWidget/mainwindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TestMyWidget/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../TestMyWidget/FullInfoCommand.ui ../TestMyWidget/NewCommand.ui ../TestMyWidget/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents TestMyWidget_en_US.ts $(DISTDIR)/
 
 
@@ -360,9 +363,17 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_FullInfoCommand.h ui_NewCommand.h ui_mainwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_FullInfoCommand.h ui_NewCommand.h ui_mainwindow.h
+ui_FullInfoCommand.h: ../TestMyWidget/FullInfoCommand.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic ../TestMyWidget/FullInfoCommand.ui -o ui_FullInfoCommand.h
+
+ui_NewCommand.h: ../TestMyWidget/NewCommand.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic ../TestMyWidget/NewCommand.ui -o ui_NewCommand.h
+
 ui_mainwindow.h: ../TestMyWidget/mainwindow.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic ../TestMyWidget/mainwindow.ui -o ui_mainwindow.h
