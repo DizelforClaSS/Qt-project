@@ -59,7 +59,15 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(849, 608);
+        MainWindow->setEnabled(true);
+        MainWindow->resize(850, 610);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
+        MainWindow->setSizePolicy(sizePolicy);
+        MainWindow->setMinimumSize(QSize(850, 610));
+        MainWindow->setMaximumSize(QSize(850, 610));
         actionCreate = new QAction(MainWindow);
         actionCreate->setObjectName(QString::fromUtf8("actionCreate"));
         actionOpen = new QAction(MainWindow);
@@ -131,7 +139,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 849, 22));
+        menubar->setGeometry(QRect(0, 0, 850, 22));
         menuGNUWidget = new QMenu(menubar);
         menuGNUWidget->setObjectName(QString::fromUtf8("menuGNUWidget"));
         menuHistory = new QMenu(menubar);
