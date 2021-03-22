@@ -16,20 +16,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    command.cpp \
     fulldescriptionwindow.cpp \
     help.cpp \
     historywindow.cpp \
     main.cpp \
     mainwindow.cpp \
     newcommandwindow.cpp \
+    reader.cpp \
     savedcommand.cpp
 
 HEADERS += \
+    command.h \
     fulldescriptionwindow.h \
     help.h \
     historywindow.h \
     mainwindow.h \
     newcommandwindow.h \
+    reader.h \
     savedcommand.h
 
 FORMS += \

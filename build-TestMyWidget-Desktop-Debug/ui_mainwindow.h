@@ -12,11 +12,14 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QScrollBar>
 #include <QtWidgets/QStatusBar>
@@ -33,7 +36,7 @@ public:
     QAction *actionOpen;
     QAction *actionSavedCommand;
     QWidget *centralwidget;
-    QWidget *horizontalLayoutWidget;
+    QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
@@ -46,8 +49,18 @@ public:
     QScrollArea *scrollArea_2;
     QWidget *scrollAreaWidgetContents_2;
     QScrollBar *verticalScrollBar;
-    QWidget *verticalLayoutWidget_3;
-    QVBoxLayout *CommandInfo;
+    QGroupBox *groupBox;
+    QPushButton *pushButton_11;
+    QPushButton *pushButton_12;
+    QTextEdit *textEdit_6;
+    QGroupBox *groupBox_2;
+    QPushButton *pushButton_13;
+    QPushButton *pushButton_14;
+    QTextEdit *textEdit_7;
+    QGroupBox *groupBox_3;
+    QPushButton *pushButton_15;
+    QPushButton *pushButton_16;
+    QTextEdit *textEdit_8;
     QMenuBar *menubar;
     QMenu *menuGNUWidget;
     QMenu *menuHistory;
@@ -66,8 +79,8 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
-        MainWindow->setMinimumSize(QSize(850, 610));
-        MainWindow->setMaximumSize(QSize(850, 610));
+        MainWindow->setMinimumSize(QSize(400, 300));
+        MainWindow->setMaximumSize(QSize(1600, 900));
         actionCreate = new QAction(MainWindow);
         actionCreate->setObjectName(QString::fromUtf8("actionCreate"));
         actionOpen = new QAction(MainWindow);
@@ -76,18 +89,16 @@ public:
         actionSavedCommand->setObjectName(QString::fromUtf8("actionSavedCommand"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        horizontalLayoutWidget = new QWidget(centralwidget);
-        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(0, 10, 841, 551));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        gridLayout = new QGridLayout(centralwidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        scrollArea = new QScrollArea(horizontalLayoutWidget);
+        scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 837, 547));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 828, 544));
         verticalLayoutWidget = new QWidget(scrollAreaWidgetContents);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(370, 0, 471, 551));
@@ -122,12 +133,42 @@ public:
         verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
         verticalScrollBar->setGeometry(QRect(350, -1, 20, 551));
         verticalScrollBar->setOrientation(Qt::Vertical);
-        verticalLayoutWidget_3 = new QWidget(scrollAreaWidgetContents_2);
-        verticalLayoutWidget_3->setObjectName(QString::fromUtf8("verticalLayoutWidget_3"));
-        verticalLayoutWidget_3->setGeometry(QRect(-1, -1, 351, 551));
-        CommandInfo = new QVBoxLayout(verticalLayoutWidget_3);
-        CommandInfo->setObjectName(QString::fromUtf8("CommandInfo"));
-        CommandInfo->setContentsMargins(0, 0, 0, 0);
+        groupBox = new QGroupBox(scrollAreaWidgetContents_2);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setGeometry(QRect(0, 0, 351, 191));
+        pushButton_11 = new QPushButton(groupBox);
+        pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
+        pushButton_11->setGeometry(QRect(320, 0, 31, 21));
+        pushButton_12 = new QPushButton(groupBox);
+        pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
+        pushButton_12->setGeometry(QRect(290, 0, 31, 21));
+        textEdit_6 = new QTextEdit(groupBox);
+        textEdit_6->setObjectName(QString::fromUtf8("textEdit_6"));
+        textEdit_6->setGeometry(QRect(0, 20, 351, 171));
+        groupBox_2 = new QGroupBox(scrollAreaWidgetContents_2);
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
+        groupBox_2->setGeometry(QRect(0, 190, 351, 191));
+        pushButton_13 = new QPushButton(groupBox_2);
+        pushButton_13->setObjectName(QString::fromUtf8("pushButton_13"));
+        pushButton_13->setGeometry(QRect(320, 0, 31, 21));
+        pushButton_14 = new QPushButton(groupBox_2);
+        pushButton_14->setObjectName(QString::fromUtf8("pushButton_14"));
+        pushButton_14->setGeometry(QRect(290, 0, 31, 21));
+        textEdit_7 = new QTextEdit(groupBox_2);
+        textEdit_7->setObjectName(QString::fromUtf8("textEdit_7"));
+        textEdit_7->setGeometry(QRect(0, 20, 351, 171));
+        groupBox_3 = new QGroupBox(scrollAreaWidgetContents_2);
+        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
+        groupBox_3->setGeometry(QRect(0, 380, 351, 191));
+        pushButton_15 = new QPushButton(groupBox_3);
+        pushButton_15->setObjectName(QString::fromUtf8("pushButton_15"));
+        pushButton_15->setGeometry(QRect(320, 0, 31, 21));
+        pushButton_16 = new QPushButton(groupBox_3);
+        pushButton_16->setObjectName(QString::fromUtf8("pushButton_16"));
+        pushButton_16->setGeometry(QRect(290, 0, 31, 21));
+        textEdit_8 = new QTextEdit(groupBox_3);
+        textEdit_8->setObjectName(QString::fromUtf8("textEdit_8"));
+        textEdit_8->setGeometry(QRect(0, 20, 351, 171));
         scrollArea_2->setWidget(scrollAreaWidgetContents_2);
 
         verticalLayout_2->addWidget(scrollArea_2);
@@ -135,6 +176,9 @@ public:
         scrollArea->setWidget(scrollAreaWidgetContents);
 
         horizontalLayout->addWidget(scrollArea);
+
+
+        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -172,6 +216,15 @@ public:
         actionCreate->setText(QApplication::translate("MainWindow", "Create...", nullptr));
         actionOpen->setText(QApplication::translate("MainWindow", "Open...", nullptr));
         actionSavedCommand->setText(QApplication::translate("MainWindow", "Open...", nullptr));
+        groupBox->setTitle(QApplication::translate("MainWindow", "GroupBox", nullptr));
+        pushButton_11->setText(QApplication::translate("MainWindow", "+", nullptr));
+        pushButton_12->setText(QApplication::translate("MainWindow", "?", nullptr));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "GroupBox", nullptr));
+        pushButton_13->setText(QApplication::translate("MainWindow", "+", nullptr));
+        pushButton_14->setText(QApplication::translate("MainWindow", "?", nullptr));
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "GroupBox", nullptr));
+        pushButton_15->setText(QApplication::translate("MainWindow", "+", nullptr));
+        pushButton_16->setText(QApplication::translate("MainWindow", "?", nullptr));
         menuGNUWidget->setTitle(QApplication::translate("MainWindow", "Saved Comand", nullptr));
         menuHistory->setTitle(QApplication::translate("MainWindow", "History", nullptr));
         menuHelp->setTitle(QApplication::translate("MainWindow", "Help", nullptr));
