@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = TestMyWidget1.0.0
-DISTDIR = /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/.tmp/TestMyWidget1.0.0
+DISTDIR = /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/.tmp/TestMyWidget1.0.0
 LINK          = g++
 LFLAGS        = 
 LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so /usr/lib/x86_64-linux-gnu/libGL.so -lpthread   
@@ -54,6 +54,7 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../TestMyWidget/command.cpp \
 		../TestMyWidget/fulldescriptionwindow.cpp \
+		../TestMyWidget/groupboxcommand.cpp \
 		../TestMyWidget/help.cpp \
 		../TestMyWidget/historywindow.cpp \
 		../TestMyWidget/main.cpp \
@@ -61,6 +62,7 @@ SOURCES       = ../TestMyWidget/command.cpp \
 		../TestMyWidget/newcommandwindow.cpp \
 		../TestMyWidget/reader.cpp \
 		../TestMyWidget/savedcommand.cpp moc_fulldescriptionwindow.cpp \
+		moc_groupboxcommand.cpp \
 		moc_help.cpp \
 		moc_historywindow.cpp \
 		moc_mainwindow.cpp \
@@ -68,6 +70,7 @@ SOURCES       = ../TestMyWidget/command.cpp \
 		moc_savedcommand.cpp
 OBJECTS       = command.o \
 		fulldescriptionwindow.o \
+		groupboxcommand.o \
 		help.o \
 		historywindow.o \
 		main.o \
@@ -76,6 +79,7 @@ OBJECTS       = command.o \
 		reader.o \
 		savedcommand.o \
 		moc_fulldescriptionwindow.o \
+		moc_groupboxcommand.o \
 		moc_help.o \
 		moc_historywindow.o \
 		moc_mainwindow.o \
@@ -121,6 +125,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
@@ -128,6 +136,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkit.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -159,6 +169,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../TestMyWidget/TestMyWidget.pro ../TestMyWidget/command.h \
 		../TestMyWidget/fulldescriptionwindow.h \
+		../TestMyWidget/groupboxcommand.h \
 		../TestMyWidget/help.h \
 		../TestMyWidget/historywindow.h \
 		../TestMyWidget/mainwindow.h \
@@ -166,6 +177,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TestMyWidget/reader.h \
 		../TestMyWidget/savedcommand.h ../TestMyWidget/command.cpp \
 		../TestMyWidget/fulldescriptionwindow.cpp \
+		../TestMyWidget/groupboxcommand.cpp \
 		../TestMyWidget/help.cpp \
 		../TestMyWidget/historywindow.cpp \
 		../TestMyWidget/main.cpp \
@@ -224,6 +236,10 @@ Makefile: ../TestMyWidget/TestMyWidget.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
@@ -231,6 +247,8 @@ Makefile: ../TestMyWidget/TestMyWidget.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkit.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -302,6 +320,10 @@ Makefile: ../TestMyWidget/TestMyWidget.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
@@ -309,6 +331,8 @@ Makefile: ../TestMyWidget/TestMyWidget.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkit.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
@@ -354,8 +378,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TestMyWidget/command.h ../TestMyWidget/fulldescriptionwindow.h ../TestMyWidget/help.h ../TestMyWidget/historywindow.h ../TestMyWidget/mainwindow.h ../TestMyWidget/newcommandwindow.h ../TestMyWidget/reader.h ../TestMyWidget/savedcommand.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TestMyWidget/command.cpp ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidget/help.cpp ../TestMyWidget/historywindow.cpp ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.cpp ../TestMyWidget/newcommandwindow.cpp ../TestMyWidget/reader.cpp ../TestMyWidget/savedcommand.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TestMyWidget/command.h ../TestMyWidget/fulldescriptionwindow.h ../TestMyWidget/groupboxcommand.h ../TestMyWidget/help.h ../TestMyWidget/historywindow.h ../TestMyWidget/mainwindow.h ../TestMyWidget/newcommandwindow.h ../TestMyWidget/reader.h ../TestMyWidget/savedcommand.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TestMyWidget/command.cpp ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/help.cpp ../TestMyWidget/historywindow.cpp ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.cpp ../TestMyWidget/newcommandwindow.cpp ../TestMyWidget/reader.cpp ../TestMyWidget/savedcommand.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TestMyWidget/fulldescriptionwindow.ui ../TestMyWidget/help.ui ../TestMyWidget/historywindow.ui ../TestMyWidget/mainwindow.ui ../TestMyWidget/newcommandwindow.ui ../TestMyWidget/savedcommand.ui $(DISTDIR)/
 	$(COPY_FILE) --parents TestMyWidget_en_US.ts $(DISTDIR)/
 
@@ -389,38 +413,44 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_fulldescriptionwindow.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_savedcommand.cpp
+compiler_moc_header_make_all: moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_savedcommand.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_fulldescriptionwindow.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_savedcommand.cpp
+	-$(DEL_FILE) moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_savedcommand.cpp
 moc_fulldescriptionwindow.cpp: ../TestMyWidget/fulldescriptionwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/fulldescriptionwindow.h -o moc_fulldescriptionwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/fulldescriptionwindow.h -o moc_fulldescriptionwindow.cpp
+
+moc_groupboxcommand.cpp: ../TestMyWidget/groupboxcommand.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/groupboxcommand.h -o moc_groupboxcommand.cpp
 
 moc_help.cpp: ../TestMyWidget/help.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/help.h -o moc_help.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/help.h -o moc_help.cpp
 
 moc_historywindow.cpp: ../TestMyWidget/historywindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/historywindow.h -o moc_historywindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/historywindow.h -o moc_historywindow.cpp
 
 moc_mainwindow.cpp: ../TestMyWidget/mainwindow.h \
+		../TestMyWidget/groupboxcommand.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/mainwindow.h -o moc_mainwindow.cpp
 
 moc_newcommandwindow.cpp: ../TestMyWidget/newcommandwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/newcommandwindow.h -o moc_newcommandwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/newcommandwindow.h -o moc_newcommandwindow.cpp
 
 moc_savedcommand.cpp: ../TestMyWidget/savedcommand.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/savedcommand.h -o moc_savedcommand.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/savedcommand.h -o moc_savedcommand.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -470,6 +500,9 @@ fulldescriptionwindow.o: ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidg
 		ui_fulldescriptionwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fulldescriptionwindow.o ../TestMyWidget/fulldescriptionwindow.cpp
 
+groupboxcommand.o: ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/groupboxcommand.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o groupboxcommand.o ../TestMyWidget/groupboxcommand.cpp
+
 help.o: ../TestMyWidget/help.cpp ../TestMyWidget/help.h \
 		ui_help.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o help.o ../TestMyWidget/help.cpp
@@ -478,10 +511,12 @@ historywindow.o: ../TestMyWidget/historywindow.cpp ../TestMyWidget/historywindow
 		ui_historywindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o historywindow.o ../TestMyWidget/historywindow.cpp
 
-main.o: ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.h
+main.o: ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.h \
+		../TestMyWidget/groupboxcommand.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TestMyWidget/main.cpp
 
 mainwindow.o: ../TestMyWidget/mainwindow.cpp ../TestMyWidget/mainwindow.h \
+		../TestMyWidget/groupboxcommand.h \
 		ui_mainwindow.h \
 		../TestMyWidget/newcommandwindow.h \
 		../TestMyWidget/historywindow.h \
@@ -502,6 +537,9 @@ savedcommand.o: ../TestMyWidget/savedcommand.cpp ../TestMyWidget/savedcommand.h 
 
 moc_fulldescriptionwindow.o: moc_fulldescriptionwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_fulldescriptionwindow.o moc_fulldescriptionwindow.cpp
+
+moc_groupboxcommand.o: moc_groupboxcommand.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_groupboxcommand.o moc_groupboxcommand.cpp
 
 moc_help.o: moc_help.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_help.o moc_help.cpp

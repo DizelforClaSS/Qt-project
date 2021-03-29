@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     command.cpp \
     fulldescriptionwindow.cpp \
+    groupboxcommand.cpp \
     help.cpp \
     historywindow.cpp \
     main.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 HEADERS += \
     command.h \
     fulldescriptionwindow.h \
+    groupboxcommand.h \
     help.h \
     historywindow.h \
     mainwindow.h \
