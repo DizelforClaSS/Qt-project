@@ -13,12 +13,10 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
@@ -39,11 +37,6 @@ public:
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout;
-    QGroupBox *testBox;
-    QGridLayout *gridLayout_2;
-    QTextEdit *textEdit_3;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_6;
     QTextEdit *Console;
     QMenuBar *menubar;
     QMenu *menuGNUWidget;
@@ -89,34 +82,6 @@ public:
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 263, 546));
         verticalLayout = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        testBox = new QGroupBox(scrollAreaWidgetContents);
-        testBox->setObjectName(QString::fromUtf8("testBox"));
-        testBox->setMinimumSize(QSize(231, 141));
-        testBox->setMaximumSize(QSize(231, 141));
-        gridLayout_2 = new QGridLayout(testBox);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        textEdit_3 = new QTextEdit(testBox);
-        textEdit_3->setObjectName(QString::fromUtf8("textEdit_3"));
-        textEdit_3->setEnabled(false);
-        textEdit_3->setMinimumSize(QSize(0, 100));
-
-        gridLayout_2->addWidget(textEdit_3, 0, 0, 2, 1);
-
-        pushButton_5 = new QPushButton(testBox);
-        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setMaximumSize(QSize(30, 30));
-
-        gridLayout_2->addWidget(pushButton_5, 0, 1, 1, 1);
-
-        pushButton_6 = new QPushButton(testBox);
-        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-        pushButton_6->setMaximumSize(QSize(30, 30));
-
-        gridLayout_2->addWidget(pushButton_6, 1, 1, 1, 1);
-
-
-        verticalLayout->addWidget(testBox);
-
         scrollArea->setWidget(scrollAreaWidgetContents);
 
         gridLayout->addWidget(scrollArea, 0, 0, 2, 1);
@@ -163,9 +128,6 @@ public:
         actionCreate->setText(QApplication::translate("MainWindow", "Create...", nullptr));
         actionOpen->setText(QApplication::translate("MainWindow", "Open...", nullptr));
         actionSavedCommand->setText(QApplication::translate("MainWindow", "Open...", nullptr));
-        testBox->setTitle(QApplication::translate("MainWindow", "GroupBox", nullptr));
-        pushButton_5->setText(QApplication::translate("MainWindow", "+", nullptr));
-        pushButton_6->setText(QApplication::translate("MainWindow", "?", nullptr));
         menuGNUWidget->setTitle(QApplication::translate("MainWindow", "Saved Comand", nullptr));
         menuHistory->setTitle(QApplication::translate("MainWindow", "History", nullptr));
         menuHelp->setTitle(QApplication::translate("MainWindow", "Help", nullptr));

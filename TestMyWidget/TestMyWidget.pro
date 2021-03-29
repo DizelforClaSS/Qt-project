@@ -25,6 +25,7 @@ SOURCES += \
     mainwindow.cpp \
     newcommandwindow.cpp \
     reader.cpp \
+    registry.cpp \
     savedcommand.cpp
 
 HEADERS += \
@@ -36,6 +37,7 @@ HEADERS += \
     mainwindow.h \
     newcommandwindow.h \
     reader.h \
+    registry.h \
     savedcommand.h
 
 FORMS += \

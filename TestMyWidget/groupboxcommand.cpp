@@ -1,10 +1,7 @@
 #include "groupboxcommand.h"
-#include <QPushButton>
-#include <QTextEdit>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QListWidget>
-groupboxCommand::groupboxCommand(QWidget* parent):QGroupBox(parent)
+
+
+groupboxCommand::groupboxCommand(QWidget* parent, QStringList command):QGroupBox(parent)
 {
     countCommand++; //Увеличиваем счетчик
     number=countCommand; //Присваеваем номер боксу
@@ -13,9 +10,10 @@ groupboxCommand::groupboxCommand(QWidget* parent):QGroupBox(parent)
     QHBoxLayout* hbox=new QHBoxLayout(this);
 
 
-    QPushButton* plusb=new QPushButton();
-    QPushButton* descb=new QPushButton();
-    this->setTitle("Group "+QString::number(getNumCommand()));
+    QPushButton* plusb=new QPushButton();//Кнопка добавления в избарнное
+    QPushButton* descb=new QPushButton();//Кнопка вызова окна полного описания
+
+    this->setTitle(command[1]);
     this->setMaximumHeight(151);
     this->setMinimumHeight(151);
     this->setMaximumWidth(231);

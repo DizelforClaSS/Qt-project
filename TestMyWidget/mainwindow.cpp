@@ -1,12 +1,5 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "newcommandwindow.h"
-#include "historywindow.h"
-#include "savedcommand.h"
-#include "fulldescriptionwindow.h"
-#include <QTextEdit>
-#include <QPushButton>
-#include <QFormLayout>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -27,11 +20,14 @@ void MainWindow::on_actionCreate_triggered()
     win.setModal(true);
     win.exec();
 
+    for(int i=0; registry.getCommands()->size();i++){
+        addBox(registry.getCommands()[i]);
+    }
+
 }
 
 void MainWindow::on_actionOpen_triggered()
 {
-    addBox();
     HistoryWindow win;
     win.setModal(true);
     win.exec();
@@ -44,10 +40,9 @@ void MainWindow::on_actionSavedCommand_triggered()
     win.exec();
 }
 
-void MainWindow::addBox(){
-    groupboxCommand *box=new groupboxCommand(this);
-
-
+void MainWindow::addBox(QStringList command){
+    groupboxCommand *box=new groupboxCommand(this, command);
+    boxes[box->countCommand-1]=box;
 //    layout->addWidget(plusb);
 //    layout->addWidget(descb);
 //    layout->addWidget(text);
