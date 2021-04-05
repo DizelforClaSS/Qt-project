@@ -3,9 +3,7 @@
 
 groupboxCommand::groupboxCommand(QWidget* parent, QStringList command):QGroupBox(parent)
 {
-    countCommand++; //Увеличиваем счетчик
-    number=countCommand; //Присваеваем номер боксу
-
+    this->command=command;
     QVBoxLayout* vbox=new QVBoxLayout();
     QHBoxLayout* hbox=new QHBoxLayout(this);
 
@@ -22,10 +20,15 @@ groupboxCommand::groupboxCommand(QWidget* parent, QStringList command):QGroupBox
     descb->setMaximumSize(31,31);
     plusb->setText("+");
     descb->setText("?");
+
+    connect(descb, SIGNAL(clicked()),this,SLOT(on_actionOpenFullDescription()));
     QTextEdit* text=new QTextEdit();
-    text->setDisabled(true);
+    text->setReadOnly(true);
     text->setMinimumSize(150,100);
     text->setGeometry(0,20,231,121);
+
+    this->setTitle(command[0]);
+    text->setText(command[1]);
 
     vbox->stretch(3);
     hbox->setSpacing(15);
@@ -45,4 +48,14 @@ int groupboxCommand::getNumCommand(){
     return number;
 }
 
-int groupboxCommand::countCommand=0;
+void groupboxCommand::on_actionOpenFullDescription(){
+    fullDescriptionWindow win;
+    win.setModal(true);
+    win.setWindowTitle(this->title());
+    win.setDatas(command);
+    win.exec();
+}
+
+QString groupboxCommand::getName(){
+    return this->title();
+}

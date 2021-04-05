@@ -24,13 +24,10 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="1">
-     <widget class="QPlainTextEdit" name="plainTextEdit">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>30</height>
-       </size>
+    <item row="0" column="1">
+     <widget class="QTextEdit" name="Console">
+      <property name="enabled">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
@@ -64,10 +61,13 @@
       </widget>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QTextEdit" name="Console">
-      <property name="enabled">
-       <bool>false</bool>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>30</height>
+       </size>
       </property>
      </widget>
     </item>

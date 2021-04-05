@@ -13,10 +13,10 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
@@ -33,11 +33,11 @@ public:
     QAction *actionSavedCommand;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QPlainTextEdit *plainTextEdit;
+    QTextEdit *Console;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout;
-    QTextEdit *Console;
+    QLineEdit *lineEdit;
     QMenuBar *menubar;
     QMenu *menuGNUWidget;
     QMenu *menuHistory;
@@ -66,11 +66,11 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        plainTextEdit = new QPlainTextEdit(centralwidget);
-        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
-        plainTextEdit->setMaximumSize(QSize(16777215, 30));
+        Console = new QTextEdit(centralwidget);
+        Console->setObjectName(QString::fromUtf8("Console"));
+        Console->setEnabled(false);
 
-        gridLayout->addWidget(plainTextEdit, 1, 1, 1, 1);
+        gridLayout->addWidget(Console, 0, 1, 1, 1);
 
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
@@ -86,11 +86,11 @@ public:
 
         gridLayout->addWidget(scrollArea, 0, 0, 2, 1);
 
-        Console = new QTextEdit(centralwidget);
-        Console->setObjectName(QString::fromUtf8("Console"));
-        Console->setEnabled(false);
+        lineEdit = new QLineEdit(centralwidget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setMaximumSize(QSize(16777215, 30));
 
-        gridLayout->addWidget(Console, 0, 1, 1, 1);
+        gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);

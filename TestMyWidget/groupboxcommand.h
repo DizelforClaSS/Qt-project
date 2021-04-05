@@ -7,7 +7,7 @@
 #include <QListWidget>
 #include <QStringList>
 #include <QGroupBox>
-
+#include "fulldescriptionwindow.h"
 class groupboxCommand : public QGroupBox
 {
     Q_OBJECT
@@ -16,10 +16,12 @@ public:
     explicit groupboxCommand(QWidget* parent=0, QStringList name_command={"","",""});
     ~groupboxCommand();
     groupboxCommand();
-    static int countCommand;
     int getNumCommand();
+    QStringList command;
+    QString getName();
 
 public slots:
+    void on_actionOpenFullDescription();
 
 private:
     int number=0;

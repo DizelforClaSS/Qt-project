@@ -45,12 +45,19 @@ bool registry::readRegistry(){
           \n\
                  --version\n\
                         output version information and exit";
-
+         countCommand=3;
+            return true;
 }
-bool registry::writeRegistry(QString filename){
 
+
+bool registry::writeRegistry(QString filename){
+    return true;
 }
 
 QStringList* registry::getCommands(){
     return commands;
+}
+
+int registry::getAmountofCommands(){
+        return countCommand;
 }

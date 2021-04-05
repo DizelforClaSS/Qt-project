@@ -15,7 +15,7 @@
 #include <groupboxcommand.h>
 #include <registry.h>
 #include <QString>
-
+#include <QLineEdit>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -24,6 +24,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     QGroupBox** boxes=new QGroupBox*[20];
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -38,6 +39,7 @@ private slots:
     void on_actionOpen_triggered();
 
     void on_actionSavedCommand_triggered();
+    void changeCommandSet();
 
 private:
     Ui::MainWindow *ui;

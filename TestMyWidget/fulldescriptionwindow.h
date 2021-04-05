@@ -14,6 +14,7 @@ class fullDescriptionWindow : public QDialog
 public:
     explicit fullDescriptionWindow(QWidget *parent = nullptr);
     ~fullDescriptionWindow();
+    void setDatas(QStringList command);
 
 private:
     Ui::fullDescriptionWindow *ui;
