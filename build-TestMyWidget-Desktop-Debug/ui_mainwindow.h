@@ -75,11 +75,11 @@ public:
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setMinimumSize(QSize(265, 0));
-        scrollArea->setMaximumSize(QSize(265, 16777215));
+        scrollArea->setMaximumSize(QSize(300, 16777215));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 263, 546));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 298, 546));
         verticalLayout = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         scrollArea->setWidget(scrollAreaWidgetContents);

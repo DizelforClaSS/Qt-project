@@ -191,7 +191,7 @@ TARGET        = TestMyWidget
 first: all
 ####### Build rules
 
-TestMyWidget: ui_fulldescriptionwindow.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h ui_savedcommand.h $(OBJECTS)  
+TestMyWidget: ui_fulldescriptionwindow.h ui_groupboxcommand.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h ui_savedcommand.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../TestMyWidget/TestMyWidget.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -366,7 +366,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TestMyWidget/command.h ../TestMyWidget/fulldescriptionwindow.h ../TestMyWidget/groupboxcommand.h ../TestMyWidget/help.h ../TestMyWidget/historywindow.h ../TestMyWidget/mainwindow.h ../TestMyWidget/newcommandwindow.h ../TestMyWidget/reader.h ../TestMyWidget/registry.h ../TestMyWidget/savedcommand.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../TestMyWidget/command.cpp ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/help.cpp ../TestMyWidget/historywindow.cpp ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.cpp ../TestMyWidget/newcommandwindow.cpp ../TestMyWidget/reader.cpp ../TestMyWidget/registry.cpp ../TestMyWidget/savedcommand.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TestMyWidget/fulldescriptionwindow.ui ../TestMyWidget/help.ui ../TestMyWidget/historywindow.ui ../TestMyWidget/mainwindow.ui ../TestMyWidget/newcommandwindow.ui ../TestMyWidget/savedcommand.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../TestMyWidget/fulldescriptionwindow.ui ../TestMyWidget/groupboxcommand.ui ../TestMyWidget/help.ui ../TestMyWidget/historywindow.ui ../TestMyWidget/mainwindow.ui ../TestMyWidget/newcommandwindow.ui ../TestMyWidget/savedcommand.ui $(DISTDIR)/
 	$(COPY_FILE) --parents TestMyWidget_en_US.ts $(DISTDIR)/
 
 
@@ -408,6 +408,7 @@ moc_fulldescriptionwindow.cpp: ../TestMyWidget/fulldescriptionwindow.h \
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/fulldescriptionwindow.h -o moc_fulldescriptionwindow.cpp
 
 moc_groupboxcommand.cpp: ../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/fulldescriptionwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/groupboxcommand.h -o moc_groupboxcommand.cpp
@@ -423,7 +424,13 @@ moc_historywindow.cpp: ../TestMyWidget/historywindow.h \
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/historywindow.h -o moc_historywindow.cpp
 
 moc_mainwindow.cpp: ../TestMyWidget/mainwindow.h \
+		ui_mainwindow.h \
+		../TestMyWidget/newcommandwindow.h \
+		../TestMyWidget/historywindow.h \
+		../TestMyWidget/savedcommand.h \
+		../TestMyWidget/fulldescriptionwindow.h \
 		../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/registry.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/user1/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/user1/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/mainwindow.h -o moc_mainwindow.cpp
@@ -442,12 +449,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_fulldescriptionwindow.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h ui_savedcommand.h
+compiler_uic_make_all: ui_fulldescriptionwindow.h ui_groupboxcommand.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h ui_savedcommand.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_fulldescriptionwindow.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h ui_savedcommand.h
+	-$(DEL_FILE) ui_fulldescriptionwindow.h ui_groupboxcommand.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h ui_savedcommand.h
 ui_fulldescriptionwindow.h: ../TestMyWidget/fulldescriptionwindow.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic ../TestMyWidget/fulldescriptionwindow.ui -o ui_fulldescriptionwindow.h
+
+ui_groupboxcommand.h: ../TestMyWidget/groupboxcommand.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic ../TestMyWidget/groupboxcommand.ui -o ui_groupboxcommand.h
 
 ui_help.h: ../TestMyWidget/help.ui \
 		/usr/lib/qt5/bin/uic
@@ -486,7 +497,9 @@ fulldescriptionwindow.o: ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidg
 		ui_fulldescriptionwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fulldescriptionwindow.o ../TestMyWidget/fulldescriptionwindow.cpp
 
-groupboxcommand.o: ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/groupboxcommand.h
+groupboxcommand.o: ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/fulldescriptionwindow.h \
+		ui_groupboxcommand.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o groupboxcommand.o ../TestMyWidget/groupboxcommand.cpp
 
 help.o: ../TestMyWidget/help.cpp ../TestMyWidget/help.h \
@@ -498,16 +511,23 @@ historywindow.o: ../TestMyWidget/historywindow.cpp ../TestMyWidget/historywindow
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o historywindow.o ../TestMyWidget/historywindow.cpp
 
 main.o: ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.h \
-		../TestMyWidget/groupboxcommand.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TestMyWidget/main.cpp
-
-mainwindow.o: ../TestMyWidget/mainwindow.cpp ../TestMyWidget/mainwindow.h \
-		../TestMyWidget/groupboxcommand.h \
 		ui_mainwindow.h \
 		../TestMyWidget/newcommandwindow.h \
 		../TestMyWidget/historywindow.h \
 		../TestMyWidget/savedcommand.h \
-		../TestMyWidget/fulldescriptionwindow.h
+		../TestMyWidget/fulldescriptionwindow.h \
+		../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/registry.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TestMyWidget/main.cpp
+
+mainwindow.o: ../TestMyWidget/mainwindow.cpp ../TestMyWidget/mainwindow.h \
+		ui_mainwindow.h \
+		../TestMyWidget/newcommandwindow.h \
+		../TestMyWidget/historywindow.h \
+		../TestMyWidget/savedcommand.h \
+		../TestMyWidget/fulldescriptionwindow.h \
+		../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/registry.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TestMyWidget/mainwindow.cpp
 
 newcommandwindow.o: ../TestMyWidget/newcommandwindow.cpp ../TestMyWidget/newcommandwindow.h \

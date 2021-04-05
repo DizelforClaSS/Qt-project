@@ -5,12 +5,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->lineEdit, SIGNAL(editingFinished()),this, SLOT(changeCommandSet()));
+
     memory->readRegistry();
         for(int i=0; i<memory->getAmountofCommands();i++){
             addBox(memory->getCommands()[i]);
         }
-
+    connect(ui->lineEdit, SIGNAL(textChanged(QString)),this, SLOT(changeCommandSet()));
 }
 
 MainWindow::~MainWindow()
@@ -49,16 +49,17 @@ void MainWindow::on_actionSavedCommand_triggered()
 
 void MainWindow::addBox(QStringList command){
     groupboxCommand *box=new groupboxCommand(this, command);
-    boxes[memory->getAmountofCommands()-1]=box;
+    boxes.push_back(box);
     ui->verticalLayout->addWidget(box);
 }
 
 void MainWindow::changeCommandSet(){
     for(int i=0;i<memory->getAmountofCommands();i++){
-        if(boxes[i]->title().compare(ui->lineEdit->text())){
-            boxes[i]->show();
+        if(boxes.value(i)->title().contains(ui->lineEdit->text())){
+            boxes.value(i)->show();
         }else{
-            boxes[i]->hide();
+            boxes.value(i)->hide();
         }
+
     }
 }

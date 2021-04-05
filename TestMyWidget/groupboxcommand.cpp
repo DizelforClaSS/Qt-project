@@ -1,42 +1,44 @@
 #include "groupboxcommand.h"
+#include "ui_groupboxcommand.h"
 
 
-groupboxCommand::groupboxCommand(QWidget* parent, QStringList command):QGroupBox(parent)
+groupboxCommand::groupboxCommand(QWidget* parent, QStringList command):
+    QGroupBox(parent)
+   // ui(new Ui::groupboxCommand)
 {
+    //ui->setupUi(this);
     this->command=command;
-    QVBoxLayout* vbox=new QVBoxLayout();
-    QHBoxLayout* hbox=new QHBoxLayout(this);
-
+    QVBoxLayout* vbox=new QVBoxLayout(this);
+    QHBoxLayout* hbox=new QHBoxLayout();
 
     QPushButton* plusb=new QPushButton();//Кнопка добавления в избарнное
     QPushButton* descb=new QPushButton();//Кнопка вызова окна полного описания
-
     this->setTitle(command[1]);
-    this->setMaximumHeight(151);
-    this->setMinimumHeight(151);
-    this->setMaximumWidth(231);
-    this->setMinimumWidth(231);
-    plusb->setMaximumSize(31,31);
-    descb->setMaximumSize(31,31);
+
+    this->setGeometry(0,0,238,186);
+    plusb->setGeometry(12,32,104,25);
+    descb->setGeometry(122,32,104,25);
+
     plusb->setText("+");
     descb->setText("?");
 
     connect(descb, SIGNAL(clicked()),this,SLOT(on_actionOpenFullDescription()));
     QTextEdit* text=new QTextEdit();
     text->setReadOnly(true);
-    text->setMinimumSize(150,100);
-    text->setGeometry(0,20,231,121);
+    //text->setMinimumSize(150,100);
+    text->setGeometry(12,63,214,111);
 
     this->setTitle(command[0]);
     text->setText(command[1]);
 
-    vbox->stretch(3);
-    hbox->setSpacing(15);
-    vbox->addWidget(plusb);
-    vbox->addWidget(descb);
-    hbox->addWidget(text);
-    hbox->addLayout(vbox);
-    setLayout(hbox);
+    vbox->stretch(0);
+    vbox->setSpacing(0);
+    hbox->addWidget(plusb);
+    hbox->addWidget(descb);
+    vbox->addLayout(hbox);
+    vbox->addWidget(text);
+    setLayout(vbox);
+
 }
 
 groupboxCommand::~groupboxCommand(){

@@ -8,6 +8,12 @@
 #include <QStringList>
 #include <QGroupBox>
 #include "fulldescriptionwindow.h"
+#include <QGridLayout>
+namespace Ui {
+class groupboxCommand;
+}
+
+
 class groupboxCommand : public QGroupBox
 {
     Q_OBJECT
@@ -24,7 +30,9 @@ public slots:
     void on_actionOpenFullDescription();
 
 private:
+    Ui::groupboxCommand *ui;
     int number=0;
+
 };
 
 #endif // GROUPBOXCOMMAND_Hs

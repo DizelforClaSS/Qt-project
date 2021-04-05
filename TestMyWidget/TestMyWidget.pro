@@ -42,6 +42,7 @@ HEADERS += \
 
 FORMS += \
     fulldescriptionwindow.ui \
+    groupboxcommand.ui \
     help.ui \
     historywindow.ui \
     mainwindow.ui \

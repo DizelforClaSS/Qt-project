@@ -45,7 +45,20 @@ bool registry::readRegistry(){
           \n\
                  --version\n\
                         output version information and exit";
-         countCommand=3;
+
+
+            commands[3]<<"cp"<<"copy files and directories\n\
+            cp [OPTION]... [-T] SOURCE DEST\n\
+                   cp [OPTION]... SOURCE... DIRECTORY\n\
+                   cp [OPTION]... -t DIRECTORY SOURCE..."<<\
+            " Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.\n\
+            Mandatory  arguments  to  long  options are mandatory for short optionstoo.\n\
+            -a, --archive same as -dR --preserve=all\n\
+            --attributes-only don't copy the file data, just the attributes\n\
+            --backup[=CONTROL] make a backup of each existing destination file\n\
+            -b     like --backup but does not accept an argument\n\
+            --copy-contents copy contents of special files when recursive\n";
+         countCommand=4;
             return true;
 }
 

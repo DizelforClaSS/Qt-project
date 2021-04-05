@@ -16,6 +16,7 @@
 #include <registry.h>
 #include <QString>
 #include <QLineEdit>
+#include <QList>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,7 +24,7 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    QGroupBox** boxes=new QGroupBox*[20];
+    QList<QGroupBox*> boxes;
 
 public:
     MainWindow(QWidget *parent = nullptr);
