@@ -16,6 +16,8 @@ groupboxCommand::groupboxCommand(QWidget* parent, QStringList command):
     this->setTitle(command[1]);
 
     this->setGeometry(0,0,238,186);
+    this->setMaximumHeight(200);
+    this->setMinimumHeight(200);
     plusb->setGeometry(12,32,104,25);
     descb->setGeometry(122,32,104,25);
 
@@ -25,7 +27,6 @@ groupboxCommand::groupboxCommand(QWidget* parent, QStringList command):
     connect(descb, SIGNAL(clicked()),this,SLOT(on_actionOpenFullDescription()));
     QTextEdit* text=new QTextEdit();
     text->setReadOnly(true);
-    //text->setMinimumSize(150,100);
     text->setGeometry(12,63,214,111);
 
     this->setTitle(command[0]);

@@ -11,4 +11,6 @@ HistoryWindow::HistoryWindow(QWidget *parent) :
 HistoryWindow::~HistoryWindow()
 {
     delete ui;
+
 }
+

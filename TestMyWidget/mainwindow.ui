@@ -27,7 +27,10 @@
     <item row="0" column="1">
      <widget class="QTextEdit" name="Console">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </item>

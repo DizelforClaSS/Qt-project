@@ -68,7 +68,8 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         Console = new QTextEdit(centralwidget);
         Console->setObjectName(QString::fromUtf8("Console"));
-        Console->setEnabled(false);
+        Console->setEnabled(true);
+        Console->setReadOnly(true);
 
         gridLayout->addWidget(Console, 0, 1, 1, 1);
 
