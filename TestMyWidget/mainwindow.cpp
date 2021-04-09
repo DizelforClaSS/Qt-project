@@ -5,12 +5,16 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    qprocess=new QProcess(this);
 
     memory->readRegistry();
         for(int i=0; i<memory->getAmountofCommands();i++){
             addBox(memory->getCommands()[i]);
         }
+
     connect(ui->lineEdit, SIGNAL(textChanged(QString)),this, SLOT(changeCommandSet()));
+    connect(ui->lineEdit, SIGNAL(editingFinished()),  this, SLOT(handleCommand()));
+    connect(qprocess, SIGNAL(readyReadStandardOutput()), this, SLOT(outResult()));
 }
 
 MainWindow::~MainWindow()
@@ -62,4 +66,17 @@ void MainWindow::changeCommandSet(){
         }
 
     }
+}
+
+void MainWindow::handleCommand(){
+    //system(command.toStdString());
+
+    qprocess->start(ui->lineEdit->text());
+    ui->lineEdit->clear();
+}
+
+//Пока что не работает разобраться почему
+void MainWindow::outResult(){
+    qDebug()<<"here";
+    ui->Console->append(qprocess->readAllStandardOutput());
 }

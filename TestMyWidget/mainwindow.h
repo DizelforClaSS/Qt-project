@@ -17,6 +17,7 @@
 #include <QString>
 #include <QLineEdit>
 #include <QList>
+#include <QProcess>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -24,7 +25,7 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    QList<QGroupBox*> boxes;
+
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -36,13 +37,16 @@ public:
 
 private slots:
     void on_actionCreate_triggered();
-
     void on_actionOpen_triggered();
-
     void on_actionSavedCommand_triggered();
     void changeCommandSet();
+    void handleCommand();
+    void outResult();
 
 private:
     Ui::MainWindow *ui;
+    QProcess* qprocess;
+    QList<QGroupBox*> boxes;
+
 };
 #endif // MAINWINDOW_H
