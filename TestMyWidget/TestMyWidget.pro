@@ -16,7 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    command.cpp \
+    commandexecuter.cpp \
     fulldescriptionwindow.cpp \
     groupboxcommand.cpp \
     help.cpp \
@@ -26,11 +26,10 @@ SOURCES += \
     mainwindow.cpp \
     newcommandwindow.cpp \
     reader.cpp \
-    registry.cpp \
-    savedcommand.cpp
+    registry.cpp
 
 HEADERS += \
-    command.h \
+    commandexecuter.h \
     fulldescriptionwindow.h \
     groupboxcommand.h \
     help.h \
@@ -39,8 +38,7 @@ HEADERS += \
     mainwindow.h \
     newcommandwindow.h \
     reader.h \
-    registry.h \
-    savedcommand.h
+    registry.h
 
 FORMS += \
     fulldescriptionwindow.ui \
@@ -48,8 +46,7 @@ FORMS += \
     help.ui \
     historywindow.ui \
     mainwindow.ui \
-    newcommandwindow.ui \
-    savedcommand.ui
+    newcommandwindow.ui
 
 TRANSLATIONS += \
     TestMyWidget_en_US.ts

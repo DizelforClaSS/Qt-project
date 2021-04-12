@@ -3,7 +3,6 @@
 #include "ui_mainwindow.h"
 #include "newcommandwindow.h"
 #include "historywindow.h"
-#include "savedcommand.h"
 #include "fulldescriptionwindow.h"
 #include <QTextEdit>
 #include <QPushButton>
@@ -21,7 +20,8 @@
 #include <QDir>
 #include <QTime>
 #include <history.h>
-
+#include <QCloseEvent>
+#include <commandexecuter.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -35,7 +35,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void addBox(QStringList name);
-    registry* memory= new registry((QString)"filename");
+    Registry* memory= new Registry((QString)"filename");
 
 
 
@@ -45,18 +45,16 @@ private slots:
     void on_actionSavedCommand_triggered();
     void changeCommandSet();
     void handleCommand();
-    void outResult();
     void cursorLimit();
-    void outError();
 
 private:
     Ui::MainWindow *ui;
-    QProcess* qprocess;
     QList<QGroupBox*> boxes;
     QDir directory;
     QString command;
     QTime time;
     History history;
+    CommandExecuter commandExec;
 
 };
 #endif // MAINWINDOW_H

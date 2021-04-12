@@ -69,6 +69,7 @@ public:
         Console = new QTextEdit(centralwidget);
         Console->setObjectName(QString::fromUtf8("Console"));
         Console->setEnabled(true);
+        Console->setMinimumSize(QSize(550, 0));
         Console->setReadOnly(true);
 
         gridLayout->addWidget(Console, 0, 1, 1, 1);
@@ -76,11 +77,11 @@ public:
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setMinimumSize(QSize(265, 0));
-        scrollArea->setMaximumSize(QSize(300, 16777215));
+        scrollArea->setMaximumSize(QSize(500, 16777215));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 298, 546));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 274, 546));
         verticalLayout = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         scrollArea->setWidget(scrollAreaWidgetContents);
@@ -90,6 +91,7 @@ public:
         lineEdit = new QLineEdit(centralwidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setMaximumSize(QSize(16777215, 30));
+        lineEdit->setClearButtonEnabled(true);
 
         gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
 

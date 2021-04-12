@@ -8,7 +8,7 @@
 #include <QtSql/QSqlQuery>
 #include <QList>
 
-class registry
+class Registry
 {
 
 private:
@@ -17,12 +17,12 @@ private:
         int countCommand=0;
         QSqlDatabase dbase=QSqlDatabase::addDatabase("QSQLITE");
 public:
-    registry(QString filename);
+    Registry(QString filename);
     bool readRegistry();
-    bool writeRegistry(QString filename);
+    bool writeRegistry();
     QList<QStringList> getCommands();
     int getAmountofCommands();
-    ~registry();
+    ~Registry();
 
 };
 

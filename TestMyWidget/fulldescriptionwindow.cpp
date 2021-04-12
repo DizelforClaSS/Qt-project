@@ -1,21 +1,21 @@
 #include "fulldescriptionwindow.h"
 #include "ui_fulldescriptionwindow.h"
 
-fullDescriptionWindow::fullDescriptionWindow(QWidget *parent) :
+FullDescriptionWindow::FullDescriptionWindow(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::fullDescriptionWindow)
+    ui(new Ui::FullDescriptionWindow)
 {
     ui->setupUi(this);
 
 
 }
 
-fullDescriptionWindow::~fullDescriptionWindow()
+FullDescriptionWindow::~FullDescriptionWindow()
 {
     delete ui;
 }
 
-void fullDescriptionWindow::setDatas(QStringList command){
+void FullDescriptionWindow::setDatas(QStringList command){
     ui->Description->setText(command[2]);
     ui->nameCommand->setText(command[0]);
 }

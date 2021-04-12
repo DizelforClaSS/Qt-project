@@ -4,16 +4,16 @@
 #include <QDialog>
 
 namespace Ui {
-class newCommandWindow;
+class NewCommandWindow;
 }
 
-class newCommandWindow : public QDialog
+class NewCommandWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit newCommandWindow(QWidget *parent = nullptr);
-    ~newCommandWindow();
+    explicit NewCommandWindow(QWidget *parent = nullptr);
+    ~NewCommandWindow();
 
 private slots:
     void on_Ok_button_clicked();
@@ -21,7 +21,7 @@ private slots:
     void on_Cancel_Button_clicked();
 
 private:
-    Ui::newCommandWindow *ui;
+    Ui::NewCommandWindow *ui;
 };
 
 #endif // NEWCOMMANDWINDOW_H

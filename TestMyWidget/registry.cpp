@@ -1,13 +1,13 @@
 #include "registry.h"
 #include <QDebug>
 #include <QDir>
-registry::registry(QString filename)
+Registry::Registry(QString filename)
 {
     this->filename=filename;
     dbase.setDatabaseName("../Resources/Commands/DBCommands");
 }
 
-bool registry::readRegistry(){
+bool Registry::readRegistry(){
         //Считывание из файла команд
 
 
@@ -34,18 +34,18 @@ bool registry::readRegistry(){
 }
 
 
-bool registry::writeRegistry(QString filename){
+bool Registry::writeRegistry(){
     return true;
 }
 
-QList<QStringList> registry::getCommands(){
+QList<QStringList> Registry::getCommands(){
     return commands;
 }
 
-int registry::getAmountofCommands(){
+int Registry::getAmountofCommands(){
         return countCommand;
 }
 
-registry::~registry(){
+Registry::~Registry(){
 
 }

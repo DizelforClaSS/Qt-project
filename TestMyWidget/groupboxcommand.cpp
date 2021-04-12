@@ -2,7 +2,7 @@
 #include "ui_groupboxcommand.h"
 
 
-groupboxCommand::groupboxCommand(QWidget* parent, QStringList command):
+GroupboxCommand::GroupboxCommand(QWidget* parent, QStringList command):
     QGroupBox(parent)
    // ui(new Ui::groupboxCommand)
 {
@@ -51,32 +51,36 @@ groupboxCommand::groupboxCommand(QWidget* parent, QStringList command):
 
 }
 
-groupboxCommand::~groupboxCommand(){
+GroupboxCommand::~GroupboxCommand(){
 
 }
 
-int groupboxCommand::getNumCommand(){
+int GroupboxCommand::getNumCommand(){
 
     return number;
 }
 
-void groupboxCommand::on_actionOpenFullDescription(){
-    fullDescriptionWindow win;
+void GroupboxCommand::on_actionOpenFullDescription(){
+    FullDescriptionWindow win;
     win.setModal(true);
     win.setWindowTitle(this->title());
     win.setDatas(command);
     win.exec();
 }
 
-QString groupboxCommand::getName(){
+QString GroupboxCommand::getName(){
     return this->title();
 
 }
 
-void groupboxCommand::changeFavorite(){
+void GroupboxCommand::changeFavorite(){
     favorite=!favorite;
     if(!favorite)
         plusb->setText("+");
     else
         plusb->setText("-");
+}
+
+bool GroupboxCommand::isFavorite(){
+    return favorite;
 }

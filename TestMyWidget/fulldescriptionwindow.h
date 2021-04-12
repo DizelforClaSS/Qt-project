@@ -4,20 +4,20 @@
 #include <QDialog>
 
 namespace Ui {
-class fullDescriptionWindow;
+class FullDescriptionWindow;
 }
 
-class fullDescriptionWindow : public QDialog
+class FullDescriptionWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit fullDescriptionWindow(QWidget *parent = nullptr);
-    ~fullDescriptionWindow();
+    explicit FullDescriptionWindow(QWidget *parent = nullptr);
+    ~FullDescriptionWindow();
     void setDatas(QStringList command);
 
 private:
-    Ui::fullDescriptionWindow *ui;
+    Ui::FullDescriptionWindow *ui;
 };
 
 #endif // FULLDESCRIPTIONWINDOW_H

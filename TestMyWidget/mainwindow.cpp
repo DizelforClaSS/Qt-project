@@ -6,21 +6,17 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    qprocess=new QProcess(this);
-
     memory->readRegistry();
         for(int i=0; i<memory->getAmountofCommands();i++){
             addBox(memory->getCommands().value(i));
         }
-
-    qprocess->setWorkingDirectory(directory.homePath());
     directory.cd(directory.homePath());
     ui->lineEdit->setText(directory.path()+": ");
 
     connect(ui->lineEdit, SIGNAL(textChanged(QString)),this, SLOT(changeCommandSet()));
     connect(ui->lineEdit, SIGNAL(returnPressed()),  this, SLOT(handleCommand()));
-    connect(qprocess, SIGNAL(readyReadStandardOutput()), this, SLOT(outResult()));
-    connect(qprocess, SIGNAL(readyReadStandardError()), this, SLOT(outError()));
+//    connect(qprocess, SIGNAL(readyReadStandardOutput()), this, SLOT(outResult()));
+//    connect(qprocess, SIGNAL(readyReadStandardError()), this, SLOT(outError()));
     connect(ui->lineEdit, SIGNAL(cursorPositionChanged(int,int)), this, SLOT(cursorLimit()));
 }
 
@@ -33,7 +29,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionCreate_triggered()
 {
 
-    newCommandWindow win;
+    NewCommandWindow win;
 
 
     win.setModal(true);
@@ -52,14 +48,11 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionSavedCommand_triggered()
 {
-    SavedCommand win;
 
-    win.setModal(true);
-    win.exec();
 }
 
 void MainWindow::addBox(QStringList command){
-    groupboxCommand *box=new groupboxCommand(this, command);
+    GroupboxCommand *box=new GroupboxCommand(this, command);
     boxes.push_back(box);
     ui->verticalLayout->addWidget(box);
 }
@@ -88,35 +81,38 @@ void MainWindow::changeCommandSet(){
 
 void MainWindow::handleCommand(){
     QStringList input=ui->lineEdit->text().split(" ");
-
-    ui->Console->append("["+time.currentTime().toString()+"]  "+ui->lineEdit->text());
-    history.writeHistory(ui->lineEdit->text());
     if(QString::compare("clear",command)==0)
         ui->Console->clear();
 
     if(QString::compare("cd",command)==0){
        directory.cd(input.value(2));
-       qprocess->setWorkingDirectory(directory.path());
     }
+    ui->Console->append("["+time.currentTime().toString()+"]  "+ui->lineEdit->text());
+    history.writeHistory(ui->lineEdit->text());
 
-    qprocess->start(command);
+    commandExec.handleCommand(ui->lineEdit->text());
     ui->lineEdit->clear();
     ui->lineEdit->setText(directory.path()+": ");
-    //qDebug()<<qprocess->workingDirectory();
 }
 
-void MainWindow::outResult(){
+//void MainWindow::outResult(){
 
-    ui->Console->append(qprocess->readAllStandardOutput());
-}
+//    ui->Console->append(qprocess->readAllStandardOutput());
+//}
 
-void MainWindow::outError(){
+//void MainWindow::outError(){
 
-    ui->Console->append(qprocess->readAllStandardError());
-}
+//    ui->Console->append(qprocess->readAllStandardError());
+//}
 
 void MainWindow::cursorLimit(){
     if(ui->lineEdit->cursorPosition()<directory.path().size()+2){
          ui->lineEdit->setCursorPosition(directory.path().size()+2);
     }
 }
+
+//void MainWindow::closeEvent(QCloseEvent *event){
+//    event->ignore();
+//    memory->writeRegistry();
+//    event->accept();
+//}
