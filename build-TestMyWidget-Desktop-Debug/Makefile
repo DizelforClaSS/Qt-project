@@ -56,6 +56,7 @@ SOURCES       = ../TestMyWidget/command.cpp \
 		../TestMyWidget/fulldescriptionwindow.cpp \
 		../TestMyWidget/groupboxcommand.cpp \
 		../TestMyWidget/help.cpp \
+		../TestMyWidget/history.cpp \
 		../TestMyWidget/historywindow.cpp \
 		../TestMyWidget/main.cpp \
 		../TestMyWidget/mainwindow.cpp \
@@ -73,6 +74,7 @@ OBJECTS       = command.o \
 		fulldescriptionwindow.o \
 		groupboxcommand.o \
 		help.o \
+		history.o \
 		historywindow.o \
 		main.o \
 		mainwindow.o \
@@ -173,6 +175,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TestMyWidget/fulldescriptionwindow.h \
 		../TestMyWidget/groupboxcommand.h \
 		../TestMyWidget/help.h \
+		../TestMyWidget/history.h \
 		../TestMyWidget/historywindow.h \
 		../TestMyWidget/mainwindow.h \
 		../TestMyWidget/newcommandwindow.h \
@@ -182,6 +185,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TestMyWidget/fulldescriptionwindow.cpp \
 		../TestMyWidget/groupboxcommand.cpp \
 		../TestMyWidget/help.cpp \
+		../TestMyWidget/history.cpp \
 		../TestMyWidget/historywindow.cpp \
 		../TestMyWidget/main.cpp \
 		../TestMyWidget/mainwindow.cpp \
@@ -382,8 +386,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TestMyWidget/command.h ../TestMyWidget/fulldescriptionwindow.h ../TestMyWidget/groupboxcommand.h ../TestMyWidget/help.h ../TestMyWidget/historywindow.h ../TestMyWidget/mainwindow.h ../TestMyWidget/newcommandwindow.h ../TestMyWidget/reader.h ../TestMyWidget/registry.h ../TestMyWidget/savedcommand.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TestMyWidget/command.cpp ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/help.cpp ../TestMyWidget/historywindow.cpp ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.cpp ../TestMyWidget/newcommandwindow.cpp ../TestMyWidget/reader.cpp ../TestMyWidget/registry.cpp ../TestMyWidget/savedcommand.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TestMyWidget/command.h ../TestMyWidget/fulldescriptionwindow.h ../TestMyWidget/groupboxcommand.h ../TestMyWidget/help.h ../TestMyWidget/history.h ../TestMyWidget/historywindow.h ../TestMyWidget/mainwindow.h ../TestMyWidget/newcommandwindow.h ../TestMyWidget/reader.h ../TestMyWidget/registry.h ../TestMyWidget/savedcommand.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TestMyWidget/command.cpp ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/help.cpp ../TestMyWidget/history.cpp ../TestMyWidget/historywindow.cpp ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.cpp ../TestMyWidget/newcommandwindow.cpp ../TestMyWidget/reader.cpp ../TestMyWidget/registry.cpp ../TestMyWidget/savedcommand.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TestMyWidget/fulldescriptionwindow.ui ../TestMyWidget/groupboxcommand.ui ../TestMyWidget/help.ui ../TestMyWidget/historywindow.ui ../TestMyWidget/mainwindow.ui ../TestMyWidget/newcommandwindow.ui ../TestMyWidget/savedcommand.ui $(DISTDIR)/
 	$(COPY_FILE) --parents TestMyWidget_en_US.ts $(DISTDIR)/
 
@@ -437,6 +441,7 @@ moc_help.cpp: ../TestMyWidget/help.h \
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/help.h -o moc_help.cpp
 
 moc_historywindow.cpp: ../TestMyWidget/historywindow.h \
+		../TestMyWidget/history.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/historywindow.h -o moc_historywindow.cpp
@@ -445,6 +450,7 @@ moc_mainwindow.cpp: ../TestMyWidget/mainwindow.h \
 		ui_mainwindow.h \
 		../TestMyWidget/newcommandwindow.h \
 		../TestMyWidget/historywindow.h \
+		../TestMyWidget/history.h \
 		../TestMyWidget/savedcommand.h \
 		../TestMyWidget/fulldescriptionwindow.h \
 		../TestMyWidget/groupboxcommand.h \
@@ -524,7 +530,11 @@ help.o: ../TestMyWidget/help.cpp ../TestMyWidget/help.h \
 		ui_help.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o help.o ../TestMyWidget/help.cpp
 
+history.o: ../TestMyWidget/history.cpp ../TestMyWidget/history.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o history.o ../TestMyWidget/history.cpp
+
 historywindow.o: ../TestMyWidget/historywindow.cpp ../TestMyWidget/historywindow.h \
+		../TestMyWidget/history.h \
 		ui_historywindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o historywindow.o ../TestMyWidget/historywindow.cpp
 
@@ -532,6 +542,7 @@ main.o: ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.h \
 		ui_mainwindow.h \
 		../TestMyWidget/newcommandwindow.h \
 		../TestMyWidget/historywindow.h \
+		../TestMyWidget/history.h \
 		../TestMyWidget/savedcommand.h \
 		../TestMyWidget/fulldescriptionwindow.h \
 		../TestMyWidget/groupboxcommand.h \
@@ -542,6 +553,7 @@ mainwindow.o: ../TestMyWidget/mainwindow.cpp ../TestMyWidget/mainwindow.h \
 		ui_mainwindow.h \
 		../TestMyWidget/newcommandwindow.h \
 		../TestMyWidget/historywindow.h \
+		../TestMyWidget/history.h \
 		../TestMyWidget/savedcommand.h \
 		../TestMyWidget/fulldescriptionwindow.h \
 		../TestMyWidget/groupboxcommand.h \

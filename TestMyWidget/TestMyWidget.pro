@@ -20,6 +20,7 @@ SOURCES += \
     fulldescriptionwindow.cpp \
     groupboxcommand.cpp \
     help.cpp \
+    history.cpp \
     historywindow.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -33,6 +34,7 @@ HEADERS += \
     fulldescriptionwindow.h \
     groupboxcommand.h \
     help.h \
+    history.h \
     historywindow.h \
     mainwindow.h \
     newcommandwindow.h \

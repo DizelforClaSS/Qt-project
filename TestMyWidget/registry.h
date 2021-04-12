@@ -6,20 +6,21 @@
 #include <QtSql/qsqldatabase.h>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
+#include <QList>
 
 class registry
 {
 
 private:
         QString filename;
-        QStringList* commands=new QStringList[20];// one command={"name","mini-description","fulldescription"}
+        QList<QStringList> commands;// one command={"name","mini-description","fulldescription"}
         int countCommand=0;
         QSqlDatabase dbase=QSqlDatabase::addDatabase("QSQLITE");
 public:
     registry(QString filename);
     bool readRegistry();
     bool writeRegistry(QString filename);
-    QStringList* getCommands();
+    QList<QStringList> getCommands();
     int getAmountofCommands();
     ~registry();
 

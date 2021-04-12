@@ -28,10 +28,15 @@ public:
 
 public slots:
     void on_actionOpenFullDescription();
+    void changeFavorite();
 
 private:
     Ui::groupboxCommand *ui;
     int number=0;
+    bool favorite;
+    bool isFavorite();
+    QPushButton* plusb;//Кнопка добавления в избарнное
+    QPushButton* descb;
 
 };
 

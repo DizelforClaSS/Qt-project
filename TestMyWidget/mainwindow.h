@@ -1,6 +1,5 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include "ui_mainwindow.h"
 #include "newcommandwindow.h"
 #include "historywindow.h"
@@ -18,6 +17,11 @@
 #include <QLineEdit>
 #include <QList>
 #include <QProcess>
+#include <QDebug>
+#include <QDir>
+#include <QTime>
+#include <history.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -42,11 +46,17 @@ private slots:
     void changeCommandSet();
     void handleCommand();
     void outResult();
+    void cursorLimit();
+    void outError();
 
 private:
     Ui::MainWindow *ui;
     QProcess* qprocess;
     QList<QGroupBox*> boxes;
+    QDir directory;
+    QString command;
+    QTime time;
+    History history;
 
 };
 #endif // MAINWINDOW_H

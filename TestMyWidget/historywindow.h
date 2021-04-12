@@ -2,7 +2,9 @@
 #define HISTORYWINDOW_H
 
 #include <QDialog>
-
+#include <QByteArray>
+#include <QFile>
+#include <history.h>
 namespace Ui {
 class HistoryWindow;
 }
@@ -17,6 +19,8 @@ public:
 
 private:
     Ui::HistoryWindow *ui;
+    History history;
+
 };
 
 #endif // HISTORYWINDOW_H

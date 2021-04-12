@@ -21,9 +21,12 @@ bool registry::readRegistry(){
     QSqlQuery query;
     query.exec("SELECT*FROM Commands");
     while(query.next()){
-        commands[countCommand]<<query.value(0).toString();
-        commands[countCommand]<<query.value(1).toString();
-        commands[countCommand]<<query.value(2).toString();
+        QStringList command;
+        command<<query.value(0).toString();
+        command<<query.value(1).toString();
+        command<<query.value(2).toString();
+        command<<query.value(3).toString();
+        commands.append(command);
         countCommand++;
     }
             dbase.close();
@@ -35,7 +38,7 @@ bool registry::writeRegistry(QString filename){
     return true;
 }
 
-QStringList* registry::getCommands(){
+QList<QStringList> registry::getCommands(){
     return commands;
 }
 
