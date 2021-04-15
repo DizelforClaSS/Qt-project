@@ -26,6 +26,8 @@ public:
     QStringList command;
     QString getName();
     bool isFavorite();
+    bool isShow();
+    void setShow(bool flag);
 
 public slots:
     void on_actionOpenFullDescription();
@@ -35,6 +37,7 @@ private:
     Ui::GroupboxCommand *ui;
     int number=0;
     bool favorite;
+    bool is_show;
     QPushButton* plusb;//Кнопка добавления в избарнное
     QPushButton* descb;
 

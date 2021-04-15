@@ -46,15 +46,18 @@ private slots:
     void changeCommandSet();
     void handleCommand();
     void cursorLimit();
+    void setOutputResult();
+    void sortCommands();
 
 private:
     Ui::MainWindow *ui;
-    QList<QGroupBox*> boxes;
+    QList<GroupboxCommand*> boxes;
     QDir directory;
     QString command;
     QTime time;
     History history;
     CommandExecuter commandExec;
+
 
 };
 #endif // MAINWINDOW_H

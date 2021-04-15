@@ -84,3 +84,13 @@ void GroupboxCommand::changeFavorite(){
 bool GroupboxCommand::isFavorite(){
     return favorite;
 }
+
+bool GroupboxCommand::isShow()
+{
+    return is_show;
+}
+
+void GroupboxCommand::setShow(bool flag)
+{
+    is_show=flag;
+}
