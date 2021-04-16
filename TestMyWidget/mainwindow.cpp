@@ -54,6 +54,7 @@ void MainWindow::on_actionSavedCommand_triggered()
 
 void MainWindow::addBox(QStringList command){
     GroupboxCommand *box=new GroupboxCommand(this, command);
+    box->setShow(true);
     connect(box,SIGNAL(here_changeFavorite(GroupboxCommand*)),memory,SLOT(updateCommand(GroupboxCommand*)));
     boxes.push_back(box);
     ui->verticalLayout->addWidget(box);
@@ -67,7 +68,6 @@ void MainWindow::changeCommandSet(){
 
     if(ui->lineEdit->text().mid(0,path.size()).contains(path)){
         command=input.value(1);
-
         for(int i=0;i<memory->getAmountofCommands();i++){
                 if(boxes.value(i)->title().contains(command) && boxes.value(i)->isShow()){
                     boxes.value(i)->show();

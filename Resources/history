@@ -289,3 +289,11 @@ Documents  file       Pictures	qtprojects  snap    Videos
 /home/vlad: cd Desktop
 вт апр. 13 15:35:18 2021 
 /home/vlad/Desktop: dir
+пт апр. 16 12:36:29 2021 
+/home/vlad: cd Desktop
+пт апр. 16 12:36:35 2021 
+/home/vlad/Desktop: dir
+пт апр. 16 12:36:44 2021 
+/home/vlad/Desktop: mkdir TestDir
+пт апр. 16 12:36:54 2021 
+/home/vlad/Desktop: dir
