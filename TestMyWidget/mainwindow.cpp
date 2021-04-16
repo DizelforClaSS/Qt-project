@@ -54,6 +54,7 @@ void MainWindow::on_actionSavedCommand_triggered()
 
 void MainWindow::addBox(QStringList command){
     GroupboxCommand *box=new GroupboxCommand(this, command);
+    connect(box,SIGNAL(here_changeFavorite(GroupboxCommand*)),memory,SLOT(updateCommand(GroupboxCommand*)));
     boxes.push_back(box);
     ui->verticalLayout->addWidget(box);
 }

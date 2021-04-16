@@ -28,6 +28,8 @@ public:
     bool isFavorite();
     bool isShow();
     void setShow(bool flag);
+signals:
+   void here_changeFavorite(GroupboxCommand*);
 
 public slots:
     void on_actionOpenFullDescription();

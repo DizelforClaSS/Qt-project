@@ -1,6 +1,7 @@
 #include "registry.h"
 #include <QDebug>
 #include <QDir>
+
 Registry::Registry(QString filename)
 {
     this->filename=filename;
@@ -40,6 +41,23 @@ bool Registry::writeRegistry(){
 
 QList<QStringList> Registry::getCommands(){
     return commands;
+}
+void Registry::updateCommand(GroupboxCommand * gbox)
+{
+    if(!dbase.open()){
+        qDebug()<<"Open db is Error\n";
+    }
+
+    QSqlQuery query;
+
+    query.prepare("UPDATE Commands SET Favorite=:f WHERE Name=:n");
+    query.bindValue(":n",gbox->getName());
+    if(gbox->isFavorite())
+        query.bindValue(":f","TRUE");
+    else
+        query.bindValue(":f","FALSE");
+    query.exec();
+    dbase.close();
 }
 
 int Registry::getAmountofCommands(){

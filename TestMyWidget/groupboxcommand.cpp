@@ -79,6 +79,7 @@ void GroupboxCommand::changeFavorite(){
         plusb->setText("+");
     else
         plusb->setText("-");
+    emit(here_changeFavorite(this));
 }
 
 bool GroupboxCommand::isFavorite(){

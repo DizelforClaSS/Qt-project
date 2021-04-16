@@ -68,7 +68,8 @@ SOURCES       = ../TestMyWidget/commandexecuter.cpp \
 		moc_help.cpp \
 		moc_historywindow.cpp \
 		moc_mainwindow.cpp \
-		moc_newcommandwindow.cpp
+		moc_newcommandwindow.cpp \
+		moc_registry.cpp
 OBJECTS       = commandexecuter.o \
 		fulldescriptionwindow.o \
 		groupboxcommand.o \
@@ -86,7 +87,8 @@ OBJECTS       = commandexecuter.o \
 		moc_help.o \
 		moc_historywindow.o \
 		moc_mainwindow.o \
-		moc_newcommandwindow.o
+		moc_newcommandwindow.o \
+		moc_registry.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -417,9 +419,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_commandexecuter.cpp moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp
+compiler_moc_header_make_all: moc_commandexecuter.cpp moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_registry.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_commandexecuter.cpp moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp
+	-$(DEL_FILE) moc_commandexecuter.cpp moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_registry.cpp
 moc_commandexecuter.cpp: ../TestMyWidget/commandexecuter.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -464,6 +466,13 @@ moc_newcommandwindow.cpp: ../TestMyWidget/newcommandwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/newcommandwindow.h -o moc_newcommandwindow.cpp
+
+moc_registry.cpp: ../TestMyWidget/registry.h \
+		../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/fulldescriptionwindow.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/registry.h -o moc_registry.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -559,7 +568,9 @@ newcommandwindow.o: ../TestMyWidget/newcommandwindow.cpp ../TestMyWidget/newcomm
 reader.o: ../TestMyWidget/reader.cpp ../TestMyWidget/reader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o reader.o ../TestMyWidget/reader.cpp
 
-registry.o: ../TestMyWidget/registry.cpp ../TestMyWidget/registry.h
+registry.o: ../TestMyWidget/registry.cpp ../TestMyWidget/registry.h \
+		../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/fulldescriptionwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o registry.o ../TestMyWidget/registry.cpp
 
 moc_commandexecuter.o: moc_commandexecuter.cpp 
@@ -582,6 +593,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_newcommandwindow.o: moc_newcommandwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_newcommandwindow.o moc_newcommandwindow.cpp
+
+moc_registry.o: moc_registry.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_registry.o moc_registry.cpp
 
 ####### Install
 
