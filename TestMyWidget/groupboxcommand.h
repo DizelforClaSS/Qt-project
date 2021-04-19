@@ -9,6 +9,8 @@
 #include <QGroupBox>
 #include "fulldescriptionwindow.h"
 #include <QGridLayout>
+#include "dialogcommandconstructfind.h"
+
 namespace Ui {
 class GroupboxCommand;
 }
@@ -30,10 +32,13 @@ public:
     void setShow(bool flag);
 signals:
    void here_changeFavorite(GroupboxCommand*);
+   void readyCommand(QString);
 
 public slots:
     void on_actionOpenFullDescription();
     void changeFavorite();
+    void createConstructtor();
+    void transferCommand(QString command);
 
 private:
     Ui::GroupboxCommand *ui;
@@ -42,6 +47,7 @@ private:
     bool is_show;
     QPushButton* plusb;//Кнопка добавления в избарнное
     QPushButton* descb;
+    QPushButton* constructb;//кнопка конструктора
 
 
 };

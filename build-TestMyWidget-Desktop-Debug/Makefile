@@ -53,6 +53,7 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../TestMyWidget/commandexecuter.cpp \
+		../TestMyWidget/dialogcommandconstructfind.cpp \
 		../TestMyWidget/fulldescriptionwindow.cpp \
 		../TestMyWidget/groupboxcommand.cpp \
 		../TestMyWidget/help.cpp \
@@ -63,6 +64,7 @@ SOURCES       = ../TestMyWidget/commandexecuter.cpp \
 		../TestMyWidget/newcommandwindow.cpp \
 		../TestMyWidget/reader.cpp \
 		../TestMyWidget/registry.cpp moc_commandexecuter.cpp \
+		moc_dialogcommandconstructfind.cpp \
 		moc_fulldescriptionwindow.cpp \
 		moc_groupboxcommand.cpp \
 		moc_help.cpp \
@@ -71,6 +73,7 @@ SOURCES       = ../TestMyWidget/commandexecuter.cpp \
 		moc_newcommandwindow.cpp \
 		moc_registry.cpp
 OBJECTS       = commandexecuter.o \
+		dialogcommandconstructfind.o \
 		fulldescriptionwindow.o \
 		groupboxcommand.o \
 		help.o \
@@ -82,6 +85,7 @@ OBJECTS       = commandexecuter.o \
 		reader.o \
 		registry.o \
 		moc_commandexecuter.o \
+		moc_dialogcommandconstructfind.o \
 		moc_fulldescriptionwindow.o \
 		moc_groupboxcommand.o \
 		moc_help.o \
@@ -172,6 +176,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../TestMyWidget/TestMyWidget.pro ../TestMyWidget/commandexecuter.h \
+		../TestMyWidget/dialogcommandconstructfind.h \
 		../TestMyWidget/fulldescriptionwindow.h \
 		../TestMyWidget/groupboxcommand.h \
 		../TestMyWidget/help.h \
@@ -181,6 +186,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TestMyWidget/newcommandwindow.h \
 		../TestMyWidget/reader.h \
 		../TestMyWidget/registry.h ../TestMyWidget/commandexecuter.cpp \
+		../TestMyWidget/dialogcommandconstructfind.cpp \
 		../TestMyWidget/fulldescriptionwindow.cpp \
 		../TestMyWidget/groupboxcommand.cpp \
 		../TestMyWidget/help.cpp \
@@ -199,7 +205,7 @@ TARGET        = TestMyWidget
 first: all
 ####### Build rules
 
-TestMyWidget: ui_fulldescriptionwindow.h ui_groupboxcommand.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h $(OBJECTS)  
+TestMyWidget: ui_dialogcommandconstructfind.h ui_fulldescriptionwindow.h ui_groupboxcommand.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../TestMyWidget/TestMyWidget.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -384,9 +390,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TestMyWidget/commandexecuter.h ../TestMyWidget/fulldescriptionwindow.h ../TestMyWidget/groupboxcommand.h ../TestMyWidget/help.h ../TestMyWidget/history.h ../TestMyWidget/historywindow.h ../TestMyWidget/mainwindow.h ../TestMyWidget/newcommandwindow.h ../TestMyWidget/reader.h ../TestMyWidget/registry.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TestMyWidget/commandexecuter.cpp ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/help.cpp ../TestMyWidget/history.cpp ../TestMyWidget/historywindow.cpp ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.cpp ../TestMyWidget/newcommandwindow.cpp ../TestMyWidget/reader.cpp ../TestMyWidget/registry.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TestMyWidget/fulldescriptionwindow.ui ../TestMyWidget/groupboxcommand.ui ../TestMyWidget/help.ui ../TestMyWidget/historywindow.ui ../TestMyWidget/mainwindow.ui ../TestMyWidget/newcommandwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../TestMyWidget/commandexecuter.h ../TestMyWidget/dialogcommandconstructfind.h ../TestMyWidget/fulldescriptionwindow.h ../TestMyWidget/groupboxcommand.h ../TestMyWidget/help.h ../TestMyWidget/history.h ../TestMyWidget/historywindow.h ../TestMyWidget/mainwindow.h ../TestMyWidget/newcommandwindow.h ../TestMyWidget/reader.h ../TestMyWidget/registry.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TestMyWidget/commandexecuter.cpp ../TestMyWidget/dialogcommandconstructfind.cpp ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/help.cpp ../TestMyWidget/history.cpp ../TestMyWidget/historywindow.cpp ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.cpp ../TestMyWidget/newcommandwindow.cpp ../TestMyWidget/reader.cpp ../TestMyWidget/registry.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TestMyWidget/dialogcommandconstructfind.ui ../TestMyWidget/fulldescriptionwindow.ui ../TestMyWidget/groupboxcommand.ui ../TestMyWidget/help.ui ../TestMyWidget/historywindow.ui ../TestMyWidget/mainwindow.ui ../TestMyWidget/newcommandwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents TestMyWidget_en_US.ts $(DISTDIR)/
 
 
@@ -419,13 +425,18 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_commandexecuter.cpp moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_registry.cpp
+compiler_moc_header_make_all: moc_commandexecuter.cpp moc_dialogcommandconstructfind.cpp moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_registry.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_commandexecuter.cpp moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_registry.cpp
+	-$(DEL_FILE) moc_commandexecuter.cpp moc_dialogcommandconstructfind.cpp moc_fulldescriptionwindow.cpp moc_groupboxcommand.cpp moc_help.cpp moc_historywindow.cpp moc_mainwindow.cpp moc_newcommandwindow.cpp moc_registry.cpp
 moc_commandexecuter.cpp: ../TestMyWidget/commandexecuter.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/commandexecuter.h -o moc_commandexecuter.cpp
+
+moc_dialogcommandconstructfind.cpp: ../TestMyWidget/dialogcommandconstructfind.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/dialogcommandconstructfind.h -o moc_dialogcommandconstructfind.cpp
 
 moc_fulldescriptionwindow.cpp: ../TestMyWidget/fulldescriptionwindow.h \
 		moc_predefs.h \
@@ -434,6 +445,7 @@ moc_fulldescriptionwindow.cpp: ../TestMyWidget/fulldescriptionwindow.h \
 
 moc_groupboxcommand.cpp: ../TestMyWidget/groupboxcommand.h \
 		../TestMyWidget/fulldescriptionwindow.h \
+		../TestMyWidget/dialogcommandconstructfind.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/groupboxcommand.h -o moc_groupboxcommand.cpp
@@ -456,6 +468,7 @@ moc_mainwindow.cpp: ../TestMyWidget/mainwindow.h \
 		../TestMyWidget/history.h \
 		../TestMyWidget/fulldescriptionwindow.h \
 		../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/dialogcommandconstructfind.h \
 		../TestMyWidget/registry.h \
 		../TestMyWidget/commandexecuter.h \
 		moc_predefs.h \
@@ -470,6 +483,7 @@ moc_newcommandwindow.cpp: ../TestMyWidget/newcommandwindow.h \
 moc_registry.cpp: ../TestMyWidget/registry.h \
 		../TestMyWidget/groupboxcommand.h \
 		../TestMyWidget/fulldescriptionwindow.h \
+		../TestMyWidget/dialogcommandconstructfind.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/build-TestMyWidget-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/vlad/Desktop/Qt-Project/MyWidget/Qt-project/TestMyWidget -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TestMyWidget/registry.h -o moc_registry.cpp
@@ -478,9 +492,13 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_fulldescriptionwindow.h ui_groupboxcommand.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h
+compiler_uic_make_all: ui_dialogcommandconstructfind.h ui_fulldescriptionwindow.h ui_groupboxcommand.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_fulldescriptionwindow.h ui_groupboxcommand.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h
+	-$(DEL_FILE) ui_dialogcommandconstructfind.h ui_fulldescriptionwindow.h ui_groupboxcommand.h ui_help.h ui_historywindow.h ui_mainwindow.h ui_newcommandwindow.h
+ui_dialogcommandconstructfind.h: ../TestMyWidget/dialogcommandconstructfind.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic ../TestMyWidget/dialogcommandconstructfind.ui -o ui_dialogcommandconstructfind.h
+
 ui_fulldescriptionwindow.h: ../TestMyWidget/fulldescriptionwindow.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic ../TestMyWidget/fulldescriptionwindow.ui -o ui_fulldescriptionwindow.h
@@ -518,12 +536,17 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 commandexecuter.o: ../TestMyWidget/commandexecuter.cpp ../TestMyWidget/commandexecuter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o commandexecuter.o ../TestMyWidget/commandexecuter.cpp
 
+dialogcommandconstructfind.o: ../TestMyWidget/dialogcommandconstructfind.cpp ../TestMyWidget/dialogcommandconstructfind.h \
+		ui_dialogcommandconstructfind.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialogcommandconstructfind.o ../TestMyWidget/dialogcommandconstructfind.cpp
+
 fulldescriptionwindow.o: ../TestMyWidget/fulldescriptionwindow.cpp ../TestMyWidget/fulldescriptionwindow.h \
 		ui_fulldescriptionwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fulldescriptionwindow.o ../TestMyWidget/fulldescriptionwindow.cpp
 
 groupboxcommand.o: ../TestMyWidget/groupboxcommand.cpp ../TestMyWidget/groupboxcommand.h \
 		../TestMyWidget/fulldescriptionwindow.h \
+		../TestMyWidget/dialogcommandconstructfind.h \
 		ui_groupboxcommand.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o groupboxcommand.o ../TestMyWidget/groupboxcommand.cpp
 
@@ -546,6 +569,7 @@ main.o: ../TestMyWidget/main.cpp ../TestMyWidget/mainwindow.h \
 		../TestMyWidget/history.h \
 		../TestMyWidget/fulldescriptionwindow.h \
 		../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/dialogcommandconstructfind.h \
 		../TestMyWidget/registry.h \
 		../TestMyWidget/commandexecuter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TestMyWidget/main.cpp
@@ -557,6 +581,7 @@ mainwindow.o: ../TestMyWidget/mainwindow.cpp ../TestMyWidget/mainwindow.h \
 		../TestMyWidget/history.h \
 		../TestMyWidget/fulldescriptionwindow.h \
 		../TestMyWidget/groupboxcommand.h \
+		../TestMyWidget/dialogcommandconstructfind.h \
 		../TestMyWidget/registry.h \
 		../TestMyWidget/commandexecuter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TestMyWidget/mainwindow.cpp
@@ -570,11 +595,15 @@ reader.o: ../TestMyWidget/reader.cpp ../TestMyWidget/reader.h
 
 registry.o: ../TestMyWidget/registry.cpp ../TestMyWidget/registry.h \
 		../TestMyWidget/groupboxcommand.h \
-		../TestMyWidget/fulldescriptionwindow.h
+		../TestMyWidget/fulldescriptionwindow.h \
+		../TestMyWidget/dialogcommandconstructfind.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o registry.o ../TestMyWidget/registry.cpp
 
 moc_commandexecuter.o: moc_commandexecuter.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_commandexecuter.o moc_commandexecuter.cpp
+
+moc_dialogcommandconstructfind.o: moc_dialogcommandconstructfind.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialogcommandconstructfind.o moc_dialogcommandconstructfind.cpp
 
 moc_fulldescriptionwindow.o: moc_fulldescriptionwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_fulldescriptionwindow.o moc_fulldescriptionwindow.cpp

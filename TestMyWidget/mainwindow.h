@@ -48,6 +48,8 @@ private slots:
     void cursorLimit();
     void setOutputResult();
     void sortCommands();
+    void handleCommandfromConstructor(QString command);
+    void clearConsole();
 
 private:
     Ui::MainWindow *ui;

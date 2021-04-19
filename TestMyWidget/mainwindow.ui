@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
+    <width>874</width>
     <height>610</height>
    </rect>
   </property>
@@ -96,7 +96,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="3" rowspan="2">
+    <item row="0" column="3" rowspan="2" colspan="2">
      <widget class="QTextEdit" name="console">
       <property name="enabled">
        <bool>true</bool>
@@ -116,7 +116,7 @@
      <widget class="QScrollArea" name="scrollArea">
       <property name="minimumSize">
        <size>
-        <width>265</width>
+        <width>300</width>
         <height>0</height>
        </size>
       </property>
@@ -134,7 +134,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>263</width>
+         <width>298</width>
          <height>478</height>
         </rect>
        </property>
@@ -155,6 +155,13 @@
       </property>
      </widget>
     </item>
+    <item row="2" column="4">
+     <widget class="QPushButton" name="clearButton">
+      <property name="text">
+       <string>clear</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -162,7 +169,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>850</width>
+     <width>874</width>
      <height>22</height>
     </rect>
    </property>

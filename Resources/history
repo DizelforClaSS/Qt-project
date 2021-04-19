@@ -297,3 +297,49 @@ Documents  file       Pictures	qtprojects  snap    Videos
 /home/vlad/Desktop: mkdir TestDir
 пт апр. 16 12:36:54 2021 
 /home/vlad/Desktop: dir
+пн апр. 19 11:05:58 2021 
+/home/vlad: find
+пн апр. 19 11:06:10 2021 
+/home/vlad: find -name main
+пн апр. 19 13:16:18 2021 
+/home/vlad: 
+пн апр. 19 13:17:39 2021 
+/home/vlad: 
+пн апр. 19 13:17:54 2021 
+/home/vlad: 
+пн апр. 19 13:18:24 2021 
+/home/vlad: find 'Qt'
+пн апр. 19 13:18:34 2021 
+/home/vlad: find -iname Qt
+пн апр. 19 13:19:22 2021 
+/home/vlad: 
+пн апр. 19 13:20:22 2021 
+/home/vlad find -iname 'Qt' 
+пн апр. 19 13:20:59 2021 
+/home/vlad find -iname 'Qt' 
+пн апр. 19 13:21:30 2021 
+/home/vlad find -iname 'Qt' 
+пн апр. 19 13:21:43 2021 
+/home/vlad: finr -iname 'Qt' 
+пн апр. 19 13:21:53 2021 
+/home/vlad: find -iname 'Qt' 
+пн апр. 19 13:22:05 2021 
+/home/vlad: find -iname 'Qt'
+пн апр. 19 13:22:13 2021 
+/home/vlad: find -iname Qt
+пн апр. 19 13:22:44 2021 
+/home/vlad: find -iname [Qt]
+пн апр. 19 13:23:37 2021 
+/home/vlad: find "Qt"
+пн апр. 19 13:23:48 2021 
+/home/vlad: find -iname "Qt"
+пн апр. 19 13:25:10 2021 
+/home/vlad find -iname 'Qt' 
+пн апр. 19 13:25:34 2021 
+/home/vlad find -iname "Qt" 
+пн апр. 19 13:25:44 2021 
+/home/vlad find  -size 50M 
+пн апр. 19 13:26:33 2021 
+/home/vlad find  -size +50M 
+пн апр. 19 13:32:41 2021 
+/home/vlad: dir

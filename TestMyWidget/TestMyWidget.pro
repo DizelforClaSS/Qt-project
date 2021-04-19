@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     commandexecuter.cpp \
+    dialogcommandconstructfind.cpp \
     fulldescriptionwindow.cpp \
     groupboxcommand.cpp \
     help.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 
 HEADERS += \
     commandexecuter.h \
+    dialogcommandconstructfind.h \
     fulldescriptionwindow.h \
     groupboxcommand.h \
     help.h \
@@ -41,6 +43,7 @@ HEADERS += \
     registry.h
 
 FORMS += \
+    dialogcommandconstructfind.ui \
     fulldescriptionwindow.ui \
     groupboxcommand.ui \
     help.ui \

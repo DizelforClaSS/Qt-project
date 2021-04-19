@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->alphabetFilterButton, SIGNAL(pressed()),this,SLOT(sortCommands()));
     connect(ui->reverseAlphabetFilterButton, SIGNAL(pressed()),this,SLOT(sortCommands()));
     connect(ui->favoriteFilterButton,SIGNAL(toggled(bool)),this,SLOT(sortCommands()));
+    connect(ui->clearButton, SIGNAL(clicked()),this, SLOT(clearConsole()));
 }
 
 MainWindow::~MainWindow()
@@ -56,6 +57,7 @@ void MainWindow::addBox(QStringList command){
     GroupboxCommand *box=new GroupboxCommand(this, command);
     box->setShow(true);
     connect(box,SIGNAL(here_changeFavorite(GroupboxCommand*)),memory,SLOT(updateCommand(GroupboxCommand*)));
+    connect(box, SIGNAL(readyCommand(QString)),this,SLOT(handleCommandfromConstructor(QString)));
     boxes.push_back(box);
     ui->verticalLayout->addWidget(box);
 }
@@ -163,4 +165,22 @@ void MainWindow::sortCommands(){
 
      }
 
+}
+
+void MainWindow::handleCommandfromConstructor(QString command)
+{
+
+    QString comm=directory.path()+" "+command;
+    qDebug()<<command;
+    ui->console->append("["+time.currentTime().toString()+"]  "+comm);
+    history.writeHistory(comm);
+
+    commandExec.handleCommand(command);
+    ui->lineEdit->clear();
+    ui->lineEdit->setText(directory.path()+": ");
+}
+
+void MainWindow::clearConsole()
+{
+    ui->console->clear();
 }

@@ -43,6 +43,7 @@ public:
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout;
     QLineEdit *lineEdit;
+    QPushButton *clearButton;
     QMenuBar *menubar;
     QMenu *menuHistory;
     QMenu *menuHelp;
@@ -54,7 +55,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->setEnabled(true);
-        MainWindow->resize(850, 610);
+        MainWindow->resize(874, 610);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -109,16 +110,16 @@ public:
         console->setMinimumSize(QSize(550, 0));
         console->setReadOnly(true);
 
-        gridLayout->addWidget(console, 0, 3, 2, 1);
+        gridLayout->addWidget(console, 0, 3, 2, 2);
 
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setMinimumSize(QSize(265, 0));
+        scrollArea->setMinimumSize(QSize(300, 0));
         scrollArea->setMaximumSize(QSize(500, 16777215));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 263, 478));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 298, 478));
         verticalLayout = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         scrollArea->setWidget(scrollAreaWidgetContents);
@@ -132,10 +133,15 @@ public:
 
         gridLayout->addWidget(lineEdit, 2, 3, 1, 1);
 
+        clearButton = new QPushButton(centralwidget);
+        clearButton->setObjectName(QString::fromUtf8("clearButton"));
+
+        gridLayout->addWidget(clearButton, 2, 4, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 850, 22));
+        menubar->setGeometry(QRect(0, 0, 874, 22));
         menuHistory = new QMenu(menubar);
         menuHistory->setObjectName(QString::fromUtf8("menuHistory"));
         menuHelp = new QMenu(menubar);
@@ -170,6 +176,7 @@ public:
         favoriteFilterButton->setText(QString());
         alphabetFilterButton->setText(QString());
         reverseAlphabetFilterButton->setText(QString());
+        clearButton->setText(QApplication::translate("MainWindow", "clear", nullptr));
         menuHistory->setTitle(QApplication::translate("MainWindow", "History", nullptr));
         menuHelp->setTitle(QApplication::translate("MainWindow", "Help", nullptr));
         menuNew_Command->setTitle(QApplication::translate("MainWindow", "New Command", nullptr));
