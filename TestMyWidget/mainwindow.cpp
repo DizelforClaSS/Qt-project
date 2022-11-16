@@ -68,7 +68,7 @@ void MainWindow::changeCommandSet(){
     QStringList input=command.split(" ");
     QString path=directory.path()+": ";
 
-    if(ui->lineEdit->text().mid(0,path.size()).contains(path)){
+    if(ui->lineEdit->text().mid(0,path.size()).contains(path)){ // Сохраняем путь нахождения пользователя целым
         command=input.value(1);
         for(int i=0;i<memory->getAmountofCommands();i++){
                 if(boxes.value(i)->title().contains(command) && boxes.value(i)->isShow()){
